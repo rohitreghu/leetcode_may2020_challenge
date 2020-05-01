@@ -1,10 +1,6 @@
 #Used the logic that is applied in binary search, i.e. dividing the problem in half till you get what you want.
 class Solution(object):
     def firstBadVersion(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
         a = 1
         b = n
         iter1 = (a+b)//2
