@@ -8,7 +8,7 @@ class Solution(object):
         if n==1:
             return 1
         
-        while iter1 > 0:
+        while a <= b:
             if isBadVersion(iter1) is True:
                 if (isBadVersion(iter1-1)) is False:
                     return(iter1)
