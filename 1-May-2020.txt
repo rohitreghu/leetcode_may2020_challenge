@@ -1,0 +1,24 @@
+#Used the logic that is applied in binary search, i.e. dividing the problem in half till you get what you want.
+class Solution(object):
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        a = 1
+        b = n
+        iter1 = (a+b)//2
+        
+        if n==1:
+            return 1
+        
+        while iter1 > 0:
+            if isBadVersion(iter1) is True:
+                if (isBadVersion(iter1-1)) is False:
+                    return(iter1)
+                else:
+                    b = iter1
+                    iter1 = (a+b)//2
+            else:
+                a = iter1
+                iter1 = b
