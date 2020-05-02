@@ -1,0 +1,15 @@
+#Just check if each stone is a jewel or not
+class Solution(object):
+    def numJewelsInStones(self, J, S):
+        """
+        :type J: str
+        :type S: str
+        :rtype: int
+        """
+        count = 0
+        for ele1 in S:
+            for ele2 in J:
+                if ele1 == ele2:
+                    count += 1
+                    break
+        return count
