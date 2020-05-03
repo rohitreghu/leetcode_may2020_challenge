@@ -1,0 +1,26 @@
+#Used the concept of hashing
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        magazine_freq = {}
+        
+        for iter1 in range (26):
+            magazine_freq[chr(97+iter1)] = 0
+        
+        for ele in magazine:
+            magazine_freq[ele] += 1
+            
+        for ele in ransomNote:
+            magazine_freq[ele] -= 1
+            
+        for key in magazine_freq.keys():
+            if magazine_freq[key] < 0:
+                return False
+            
+
+        return True
+        
