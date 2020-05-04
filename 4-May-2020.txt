@@ -1,0 +1,22 @@
+class Solution(object):
+    def findComplement(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """ 
+        binary_rep_2 = bin(num)[2:]
+        
+        complement_binary = ""
+        
+        for ele in binary_rep_2:
+            if ele == "1":
+                complement_binary += "0"
+            else:
+                complement_binary += "1"
+               
+        num = 0
+        length = len(complement_binary)
+        for iter1 in range (length):
+            num += int(complement_binary[length-1-iter1]) * (2**iter1)
+            
+        return num
