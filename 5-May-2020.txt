@@ -1,3 +1,4 @@
+#Solved using the concept of hash tables using the dictionary data structure
 class Solution(object):
     def firstUniqChar(self, s):
         """
