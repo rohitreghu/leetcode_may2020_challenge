@@ -1,0 +1,17 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        freq_dict = {}
+        for iter1 in range (26):
+            freq_dict[chr(iter1+97)] = 0
+            
+        for ele in s:
+            freq_dict[ele] += 1
+            
+        for iter1 in range (len(s)):
+            if freq_dict[s[iter1]] == 1:
+                return iter1
+        return -1
