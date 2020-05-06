@@ -1,0 +1,18 @@
+#I used the concept of hashing with the help of dictionary data structure
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        freq_dict = {}
+ 	#We can also use "defaultdict" from "collection" package
+	       
+        for integer in nums:
+            if integer in freq_dict.keys():
+                freq_dict[integer] += 1
+            else:
+                freq_dict[integer] = 1
+            
+            if freq_dict[integer] > len(nums)/2:
+                return integer
