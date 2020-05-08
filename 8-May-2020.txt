@@ -1,0 +1,27 @@
+#checked for slope of 2 points at a time, if all the slopes are same -> straight line, else not.
+class Solution(object):
+    def checkStraightLine(self, coordinates):
+        if len(coordinates) == 2:
+            return True
+        diff_x = coordinates[1][0] - coordinates[0][0]
+        diff_y = coordinates[1][1] - coordinates[0][1]
+        
+        if diff_x == 0:
+            slope = "undefined"
+        else:
+            slope = diff_y/diff_x  
+        
+        for iter1 in range (1, len(coordinates)):
+            diff_x = coordinates[iter1][0] - coordinates[iter1-1][0]
+            diff_y = coordinates[iter1][1] - coordinates[iter1-1][1]
+            
+            if diff_x == 0:
+                temp_slope = "undefined"
+            else:
+                temp_slope = diff_y/diff_x
+                
+            if temp_slope != slope:
+                return False
+  
+        return True
+        
