@@ -1,0 +1,24 @@
+#Used the concept of binaary search.
+class Solution(object):
+    def isPerfectSquare(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """    
+        if num == 1:
+            return True
+        
+        l = 0
+        r = num/2
+        
+        while l <= r:
+            mid = (l+r)/2
+            
+            if (mid*mid) == num:
+                return True
+            elif (mid*mid) > num:
+                r = mid - 1
+            else:
+                l = mid + 1
+                
+        return False
