@@ -1,0 +1,33 @@
+#Used the concept of hashing using the dictionary data structure.
+class Solution(object):
+    def findJudge(self, N, trust):
+        """
+        :type N: int
+        :type trust: List[List[int]]
+        :rtype: int
+        """
+        trust_dict = {}
+        
+        for iter1 in range (1, N+1):
+            trust_dict[iter1] = []
+            
+        for ele in trust:
+            trust_dict[ele[0]].append(ele[1])
+            
+        possible_town_judge = None
+        
+        for key in trust_dict.keys():
+            if len(trust_dict[key]) == 0:
+                if possible_town_judge is not None:
+                    return -1
+                possible_town_judge = key
+                
+        if possible_town_judge is None:
+            return -1
+        
+        
+        for key in trust_dict.keys():
+            if key != possible_town_judge and possible_town_judge not in trust_dict[key]:
+                return -1
+                
+        return possible_town_judge
