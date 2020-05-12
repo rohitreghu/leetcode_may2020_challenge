@@ -1,0 +1,27 @@
+#I compared consecutive pairs of numbers, if I found consecutive pairs of diff numbers -> i got the unique single number.
+class Solution(object):
+    def singleNonDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        i = 0
+        j = 1
+        count = 1
+        
+        if len(nums) == 1:
+            return nums[0]
+        
+        while j < len(nums):
+            if nums[i] == nums[j]:
+                count = 0
+            else:
+                count += 1
+                
+            if count > 1 and j!= len(nums)-1:
+                return nums[i]
+            elif count == 1 and j == len(nums)-1:
+                return nums[j]
+            
+            i += 1
+            j += 1
