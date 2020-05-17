@@ -1,0 +1,29 @@
+class Solution(object):
+    def findAnagrams(self, s, p):
+        """
+        :type s: str
+        :type p: str
+        :rtype: List[int]
+        """
+        freq_list1 = [0]*26
+        for letter in p:
+            freq_list1[ord(letter)-97] += 1
+            
+        freq_list2 = [0]*26
+        i = 0
+        j = len(p)
+        ans = []
+        
+        for letter in s:
+            if i < j-1:
+                freq_list2[ord(letter)-97] += 1
+            else:
+                freq_list2[ord(letter)-97] += 1
+                if freq_list1 == freq_list2:
+                    ans.append(i-j+1)
+                    
+                freq_list2[ord(s[i-j+1])-97] -= 1
+                
+            i += 1
+            
+        return ans
